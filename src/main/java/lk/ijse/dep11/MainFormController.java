@@ -16,6 +16,30 @@ public class MainFormController {
     @FXML
     private TreeView<String> treeView;
 
+    public void initialize(){
+        File[] roots = File.listRoots();
+        File[] files = roots[0].listFiles();
+
+        System.out.println(roots[0]);
+
+        TreeItem<String> rootItem = new TreeItem<>(Arrays.toString(roots));
+        treeView.setRoot(rootItem);
+        listFiles(files[7],rootItem);
+
+    }
+    public static void listFiles(File root,TreeItem<String> rootItem){
+        File[] listFiles = root.listFiles();
+        for (File file : listFiles) {
+
+            if(file.isDirectory()) {
+                TreeItem<String> item = new TreeItem<>(file.getName());
+                rootItem.getChildren().add(item);
+                System.out.println(file.getName());
+                listFiles(file,item);
+            }
+        }
+
+    }
 
 
 }
