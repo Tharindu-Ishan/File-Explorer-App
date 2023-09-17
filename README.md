@@ -1,5 +1,4 @@
-# File Explorer
-# My App
+# File Explorer-App
 
 ## Version
 0.1.0

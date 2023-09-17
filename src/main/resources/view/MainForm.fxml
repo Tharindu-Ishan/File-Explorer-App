@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainFormController">
    <children>
@@ -14,40 +14,23 @@
          <left>
             <TreeView fx:id="treeView" prefHeight="373.0" prefWidth="187.0" BorderPane.alignment="CENTER" />
          </left>
-         <top>
-            <MenuBar fx:id="mnBar" BorderPane.alignment="CENTER">
-              <menus>
-                <Menu fx:id="btnNew" mnemonicParsing="false" onAction="#btnNewOnAction" text="+New">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu fx:id="btnCut" mnemonicParsing="false" onAction="#btnCutOnAction" text="Cut">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu fx:id="btnCopy" mnemonicParsing="false" onAction="#btnCopyOnAction" text="Copy">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-                  <Menu fx:id="btnRename" mnemonicParsing="false" onAction="#btnRenameOnAction" text="Rename">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                     </items>
-                  </Menu>
-                  <Menu fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                     </items>
-                  </Menu>
-              </menus>
-            </MenuBar>
-         </top>
          <center>
             <ListView fx:id="lstView" prefHeight="373.0" prefWidth="465.0" BorderPane.alignment="CENTER" />
          </center>
+         <top>
+            <HBox prefHeight="33.0" prefWidth="600.0" spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" text="+New" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Copy" />
+                  <Button layoutX="72.0" layoutY="10.0" mnemonicParsing="false" text="Cut" />
+                  <Button fx:id="btnRename" layoutX="134.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnRenameOnAction" text="Rename" />
+                  <Button layoutX="196.0" layoutY="10.0" mnemonicParsing="false" text="Delete" />
+               </children>
+               <padding>
+                  <Insets left="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>
