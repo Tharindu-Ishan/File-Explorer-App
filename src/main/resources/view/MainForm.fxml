@@ -15,7 +15,7 @@
             <TreeView fx:id="treeView" prefHeight="373.0" prefWidth="187.0" BorderPane.alignment="CENTER" />
          </left>
          <top>
-            <MenuBar fx:id="mnBar" disable="true" BorderPane.alignment="CENTER">
+            <MenuBar fx:id="mnBar" BorderPane.alignment="CENTER">
               <menus>
                 <Menu fx:id="btnNew" mnemonicParsing="false" onAction="#btnNewOnAction" text="+New">
                   <items>

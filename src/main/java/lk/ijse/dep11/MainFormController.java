@@ -20,10 +20,12 @@ public class MainFormController {
 
     @FXML
     private TreeView<String> treeView;
+    private  String selectedItem;
 
 
 
     public void initialize(){
+        mnBar.setDisable(true);
 
         File[] roots = File.listRoots();
         File[] files = roots[0].listFiles();
@@ -35,6 +37,7 @@ public class MainFormController {
         listFiles(files[7],rootItem);
 
         treeView.getSelectionModel().selectedItemProperty().addListener((observableValue, stringTreeItem, newValue) -> {
+            lstView.getSelectionModel().clearSelection();
             if (newValue != null) {
                 lstView.getItems().clear();
                 // Get the selected tree item
@@ -51,6 +54,10 @@ public class MainFormController {
                 System.out.println(parents);
                 addListView("/home"+parents.substring(3),lstView);
             }
+        });
+        lstView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            mnBar.setDisable(t1==null);
+            selectedItem=t1;
         });
 
 
@@ -84,6 +91,7 @@ public class MainFormController {
 
 
     public void btnNewOnAction(ActionEvent actionEvent) {
+
     }
 
     public void btnCutOnAction(ActionEvent actionEvent) {
