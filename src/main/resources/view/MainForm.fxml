@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainFormController">
    <children>
       <BorderPane layoutX="118.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -16,23 +15,33 @@
             <TreeView fx:id="treeView" prefHeight="373.0" prefWidth="187.0" BorderPane.alignment="CENTER" />
          </left>
          <top>
-            <MenuBar BorderPane.alignment="CENTER">
+            <MenuBar fx:id="mnBar" disable="true" BorderPane.alignment="CENTER">
               <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu fx:id="btnNew" mnemonicParsing="false" onAction="#btnNewOnAction" text="+New">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Close" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
+                <Menu fx:id="btnCut" mnemonicParsing="false" onAction="#btnCutOnAction" text="Cut">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Delete" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu fx:id="btnCopy" mnemonicParsing="false" onAction="#btnCopyOnAction" text="Copy">
                   <items>
                     <MenuItem mnemonicParsing="false" text="About" />
                   </items>
                 </Menu>
+                  <Menu fx:id="btnRename" mnemonicParsing="false" onAction="#btnRenameOnAction" text="Rename">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
               </menus>
             </MenuBar>
          </top>

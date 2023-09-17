@@ -1,15 +1,20 @@
 package lk.ijse.dep11;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 
 import java.io.File;
 import java.util.Arrays;
 
 public class MainFormController {
 
+    public Menu btnNew;
+    public Menu btnCut;
+    public Menu btnCopy;
+    public Menu btnRename;
+    public Menu btnDelete;
+    public MenuBar mnBar;
     @FXML
     private ListView<String> lstView;
 
@@ -25,6 +30,9 @@ public class MainFormController {
         TreeItem<String> rootItem = new TreeItem<>(Arrays.toString(roots));
         treeView.setRoot(rootItem);
         listFiles(files[7],rootItem);
+
+
+
 
     }
     public static void listFiles(File root,TreeItem<String> rootItem){
@@ -42,4 +50,18 @@ public class MainFormController {
     }
 
 
+    public void btnNewOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnCutOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnCopyOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnRenameOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnDeleteOnAction(ActionEvent actionEvent) {
+    }
 }
