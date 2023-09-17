@@ -21,7 +21,10 @@ public class MainFormController {
     @FXML
     private TreeView<String> treeView;
 
+
+
     public void initialize(){
+
         File[] roots = File.listRoots();
         File[] files = roots[0].listFiles();
 
@@ -31,7 +34,37 @@ public class MainFormController {
         treeView.setRoot(rootItem);
         listFiles(files[7],rootItem);
 
+        treeView.getSelectionModel().selectedItemProperty().addListener((observableValue, stringTreeItem, newValue) -> {
+            if (newValue != null) {
+                lstView.getItems().clear();
+                // Get the selected tree item
+                TreeItem<String> selectedItem = newValue;
 
+                // Traverse the tree to get parent nodes
+                String parents = "";
+                while (selectedItem != null) {
+                    parents = selectedItem.getValue() + "/" + parents;
+                    selectedItem = selectedItem.getParent();
+                }
+
+                // Display the parent nodes
+                System.out.println(parents);
+                addListView("/home"+parents.substring(3),lstView);
+            }
+        });
+
+
+
+
+    }
+
+
+    @FXML
+    public  static  void addListView(String parent,ListView<String> lstView){
+        File file = new File(parent);
+        for (File filex : file.listFiles()) {
+            lstView.getItems().add(filex.getName());
+        }
 
 
     }
