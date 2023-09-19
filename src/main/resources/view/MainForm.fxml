@@ -24,7 +24,7 @@
                   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Copy" />
                   <Button layoutX="72.0" layoutY="10.0" mnemonicParsing="false" text="Cut" />
                   <Button fx:id="btnRename" layoutX="134.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnRenameOnAction" text="Rename" />
-                  <Button layoutX="196.0" layoutY="10.0" mnemonicParsing="false" text="Delete" />
+                  <Button fx:id="btnDelete" layoutX="196.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
                </children>
                <padding>
                   <Insets left="5.0" top="5.0" />

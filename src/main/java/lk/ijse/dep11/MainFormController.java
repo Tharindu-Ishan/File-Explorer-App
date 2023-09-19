@@ -12,6 +12,7 @@ public class MainFormController {
 
 
     public Button btnRename;
+    public Button btnDelete;
     @FXML
     private ListView<String> lstView;
 
@@ -133,5 +134,24 @@ public class MainFormController {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        String selectedItem1 = lstView.getSelectionModel().getSelectedItem();
+        TreeItem<String> newValue = treeView.getSelectionModel().getSelectedItem();
+        if (newValue != null) {
+//            lstView.getItems().clear();
+            // Get the selected tree item
+            TreeItem<String> selectedItem = newValue;
+
+            // Traverse the tree to get parent nodes
+            String parents = "";
+            while (selectedItem != null) {
+                parents = selectedItem.getValue() + "/" + parents;
+                selectedItem = selectedItem.getParent();
+            }
+            String path = "/home" + parents.substring(3) + selectedItem1;
+            System.out.println(path);
+            File oldFile = new File(path);
+            oldFile.delete();
+            lstView.refresh();
+        }
     }
 }
