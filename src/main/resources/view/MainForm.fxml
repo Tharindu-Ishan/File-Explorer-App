@@ -20,7 +20,7 @@
          <top>
             <HBox prefHeight="33.0" prefWidth="600.0" spacing="5.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" text="+New" />
+                  <Button fx:id="btnNew" mnemonicParsing="false" onAction="#btnNewOnAction" text="+New" />
                   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Copy" />
                   <Button layoutX="72.0" layoutY="10.0" mnemonicParsing="false" text="Cut" />
                   <Button fx:id="btnRename" layoutX="134.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnRenameOnAction" text="Rename" />

@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ public class MainFormController {
 
     public Button btnRename;
     public Button btnDelete;
+    public Button btnNew;
     @FXML
     private ListView<String> lstView;
 
@@ -88,7 +90,36 @@ public class MainFormController {
     }
 
 
-    public void btnNewOnAction(ActionEvent actionEvent) {
+    public void btnNewOnAction(ActionEvent actionEvent) throws IOException {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("New Folder");
+        dialog.setHeaderText("Enter name:");
+        Optional<String> result = dialog.showAndWait();
+
+// Check if the user clicked OK and get the new name
+        String folderName="";
+        if (result.isPresent()) {
+            folderName = result.get();
+
+        }
+        TreeItem<String> newValue = treeView.getSelectionModel().getSelectedItem();
+        if (newValue != null) {
+//            lstView.getItems().clear();
+            // Get the selected tree item
+            TreeItem<String> selectedItem = newValue;
+
+            // Traverse the tree to get parent nodes
+            String parents = "";
+            while (selectedItem != null) {
+                parents = selectedItem.getValue() + "/" + parents;
+                selectedItem = selectedItem.getParent();
+            }
+
+            File newFile = new File("/home" + parents.substring(3) +folderName);
+            newFile.mkdir();
+            lstView.refresh();
+        }
+
 
     }
 
